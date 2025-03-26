@@ -44,3 +44,32 @@ El Sistema de Reservas de Hotel es una aplicación Java que permite gestionar:
 git clone https://github.com/tu-usuario/hotel-reservation-system.git
 cd hotel-reservation-system
 mvn clean install
+
+
+
+┌───────────────────┐       ┌─────────────────┐
+│    HotelService   │<>─────│      Room       │
+└───────────────────┘       └─────────────────┘
+       ^                            ^
+       |                            |
+┌───────────────────┐       ┌─────────────────┐
+│ HotelServiceImpl  │       │   RoomType      │
+└───────────────────┘       └─────────────────┘
+                                      ^
+                                      |
+┌───────────────────┐       ┌─────────────────┐
+│ PricingStrategy   │       │   RoomStatus    │
+└───────────────────┘       └─────────────────┘
+       ^
+       |
+┌───────────────────┐
+│SeasonalPricing    │
+└───────────────────┘
+
+
+
+com.hotel
+├── exception
+├── model
+├── service
+└── strategy
