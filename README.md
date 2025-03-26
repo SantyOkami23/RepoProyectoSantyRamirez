@@ -10,14 +10,7 @@
 3. [Instalación y Configuración](#instalación-y-configuración)
 4. [Arquitectura del Sistema](#arquitectura-del-sistema)
 5. [Patrones de Diseño](#patrones-de-diseño)
-6. [Uso de la API](#uso-de-la-api)
-7. [Manejo de Excepciones](#manejo-de-excepciones)
-8. [Ejemplos de Uso](#ejemplos-de-uso)
-9. [Pruebas](#pruebas)
-10. [Extensión del Sistema](#extensión-del-sistema)
-11. [Limitaciones](#limitaciones)
-12. [Contribución](#contribución)
-13. [Licencia](#licencia)
+
 
 ## Introducción
 
@@ -45,7 +38,7 @@ git clone https://github.com/tu-usuario/hotel-reservation-system.git
 cd hotel-reservation-system
 mvn clean install
 
-
+Arquitectura
 
 ┌───────────────────┐       ┌─────────────────┐
 │    HotelService   │<>─────│      Room       │
@@ -67,7 +60,7 @@ mvn clean install
 └───────────────────┘
 
 
-
+Distribucion de carpeta
 com.hotel
 ├── exception
 ├── model
