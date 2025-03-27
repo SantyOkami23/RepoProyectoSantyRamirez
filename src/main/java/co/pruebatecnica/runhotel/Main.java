@@ -1,6 +1,5 @@
 package co.pruebatecnica;
 
-import co.pruebatecnica.exception.InvalidRoomOperationException;
 import co.pruebatecnica.exception.RoomNotAvailableException;
 import co.pruebatecnica.model.Room;
 import co.pruebatecnica.model.RoomStatus;
@@ -16,7 +15,22 @@ public class Main {
     public static void main(String[] args) {
         try {
 
-            HotelService hotelService = getHotelService();
+            HotelService hotelService = new HotelServiceImpl();
+
+
+            hotelService.setPricingStrategy(new SeasonalPricingStrategy(1.2));
+
+
+            List<Room> rooms = Arrays.asList(
+                    new Room(101, RoomType.INDIVIDUAL),
+                    new Room(102, RoomType.INDIVIDUAL),
+                    new Room(201, RoomType.DOUBLE),
+                    new Room(202, RoomType.DOUBLE),
+                    new Room(301, RoomType.SUITE),
+                    new Room(302, RoomType.SUITE)
+            );
+
+            hotelService.addRooms(rooms);
 
 
             System.out.println("=== Todas las habitaciones ===");
@@ -69,25 +83,5 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private static HotelService getHotelService() throws InvalidRoomOperationException {
-        HotelService hotelService = new HotelServiceImpl();
-
-
-        hotelService.setPricingStrategy(new SeasonalPricingStrategy(1.2));
-
-
-        List<Room> rooms = Arrays.asList(
-                new Room(101, RoomType.INDIVIDUAL),
-                new Room(102, RoomType.INDIVIDUAL),
-                new Room(201, RoomType.DOUBLE),
-                new Room(202, RoomType.DOUBLE),
-                new Room(301, RoomType.SUITE),
-                new Room(302, RoomType.SUITE)
-        );
-
-        hotelService.addRooms(rooms);
-        return hotelService;
     }
 }
