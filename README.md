@@ -38,7 +38,7 @@ git clone https://github.com/tu-usuario/hotel-reservation-system.git
 cd hotel-reservation-system
 mvn clean install
 
-Arquitectura
+Arquitectura Admin Hotel
 
 ┌───────────────────┐       ┌─────────────────┐
 │    HotelService   │<>─────│      Room       │
@@ -59,6 +59,26 @@ Arquitectura
 │SeasonalPricing    │
 └───────────────────┘
 
+Arquitectura Admin Tareas
+
+┌───────────────────┐       ┌─────────────────┐
+│   TaskManager     │<>─────│      Task       │
+└───────────────────┘       └─────────────────┘
+       ^                            ^
+       |                            |
+┌───────────────────┐       ┌─────────────────┐
+│ TaskManagerImpl   │       │    Priority     │
+└───────────────────┘       └─────────────────┘
+                                      ^
+                                      |
+┌───────────────────┐       ┌─────────────────┐
+│ SortingStrategy   │       │   TaskStatus    │
+└───────────────────┘       └─────────────────┘
+       ^
+       |
+┌───────────────────┐
+│PrioritySorting    │
+└───────────────────┘
 
 Distribucion de carpeta
 com.hotel
